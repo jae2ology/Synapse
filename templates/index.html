@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Synapse Feed</h2>
+            <form action="" method="post" novalidate class="mb-4">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.channel.label(class="form-label") }}
+                    {{ form.channel(class="form-control") }}
+                    {% for error in form.channel.errors %}
+                        <span class="text-danger">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.body.label(class="form-label") }}
+                    {{ form.body(class="form-control", rows=3, placeholder="Share your engineering thoughts...") }}
+                    {% for error in form.body.errors %}
+                        <span class="text-danger">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+
+            <h3 class="mt-5">Posts in <span class="badge badge-secondary">{{ selected_channel.replace('_', ' ').title() }}</span></h3>
+            <div class="mb-3">
+                Change Channel:
+                {% for channel in channels %}
+                    <a href="{{ url_for('index', channel=channel) }}" class="btn btn-sm {% if channel == selected_channel %}btn-info{% else %}btn-outline-info{% endif %} mr-1 mb-1">
+                        {{ channel.replace('_', ' ').title() }}
+                    </a>
+                {% endfor %}
+            </div>
+
+            {% for post in posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-muted">
+                                    <a href="{{ url_for('view_post', post_id=post.id) }}" class="text-dark">{{ post.body }}</a>
+                                </small>
+                            </div>
+                            <div class="text-center">
+                                <a href="{{ url_for('upvote', post_id=post.id) }}" class="btn btn-sm btn-outline-success">▲</a>
+                                <br>
+                                <strong>{{ post.total_votes() }}</strong>
+                                <br>
+                                <a href="{{ url_for('downvote', post_id=post.id) }}" class="btn btn-sm btn-outline-danger">▼</a>
+                            </div>
+                        </div>
+                        <p class="card-text"><small class="text-muted">Posted by {{ post.author.username }} in <span class="badge badge-primary">{{ post.channel.replace('_', ' ').title() }}</span> on {{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</small></p>
+                        <a href="{{ url_for('view_post', post_id=post.id) }}" class="card-link">View Comments ({{ post.comments.count() }})</a>
+                    </div>
+                </div>
+            {% else %}
+                <p>No posts in this channel yet. Be the first to post!</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
