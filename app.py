@@ -99,7 +99,7 @@ def view_post(post_id):
         return redirect(url_for('view_post', post_id=post.id))
 
     comments = post.comments.order_by(Comment.timestamp.asc()).all()
-    user_vote = Vote.query.filter_by('view_post', post_id=post_id).first()
+    user_vote = Vote.query.filter_by(user_id=current_user.id, post_id=post_id).first()
 
     return render_template('post.html', title=f'Synapse by {post.author.username}', post=post, comments=comments, form=form, user_vote=user_vote)
 

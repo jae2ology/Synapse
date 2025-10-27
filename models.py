@@ -23,7 +23,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     channel = db.Column(db.String(64), index=True, default='general') # channels e.g computer_science, electrical_engineering, general
 
     comments = db.relationship('Comment', backref='post', lazy='dynamic', cascade="all, delete-orphan")
@@ -50,7 +50,7 @@ class Comment(db.Model):
 # model for upvoting/downvoting
 class Vote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     value = db.Column(db.SmallInteger, default=0) # + 1 for upvote -1 for downvote
 
