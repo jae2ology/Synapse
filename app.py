@@ -1,10 +1,11 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
-from config import Config
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate, migrate
+from flask_migrate import Migrate
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+
+from config import Config
 
 # init app
 app = Flask(__name__)
@@ -19,6 +20,11 @@ login_manager.login_view = 'login'
 # import models and forms after initializing db
 from models import User, Post, Comment, Vote
 from forms import LoginForm, RegistrationForm, PostForm, CommentForm
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 
 @app.route('/')
 @app.route('/index')

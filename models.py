@@ -1,8 +1,8 @@
 # defines the structure of data in my database
 
 from datetime import datetime
-from app import db, login_manager
 from flask_login import UserMixin
+from app import db
 
 #default implementations for methods in flask-login
 class User(UserMixin, db.Model):
@@ -59,7 +59,3 @@ class Vote(db.Model):
     def __repr__(self):
         return '<Vote {} for Post {}>'.format(self.value, self.post_id)
 
-
-@login_manager.user_loader
-def load_user(id):
-    return User.query.get(int(id))

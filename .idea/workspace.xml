@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d5716d-9a9b-4959-8211-32a2f8450a21" name="Changes" comment="displays the RegistrationForm">
-      <change afterPath="$PROJECT_DIR$/templates/post.html" afterDir="false" />
+    <list default="true" id="d9d5716d-9a9b-4959-8211-32a2f8450a21" name="Changes" comment="error pages (404 and 500)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,9 @@
     "accountId": "d49223e9-ea7d-4df1-9fa3-b4c4e2f761b1"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
@@ -51,6 +56,8 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.app.executor": "Run",
+    "Python.models.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -64,6 +71,35 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\candy\OneDrive\Documents\Projects\Synapse" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Synapse" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -152,7 +188,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761529955283</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new file for post on user side. (what the users sees on their personal post!)">
+      <option name="closed" value="true" />
+      <created>1761530032347</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761530032347</updated>
+    </task>
+    <task id="LOCAL-00011" summary="error pages (404 and 500)">
+      <option name="closed" value="true" />
+      <created>1761530091964</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761530091964</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,7 +217,9 @@
     <MESSAGE value="i hate html (front page)" />
     <MESSAGE value="displays the LoginForm" />
     <MESSAGE value="displays the RegistrationForm" />
-    <option name="LAST_COMMIT_MESSAGE" value="displays the RegistrationForm" />
+    <MESSAGE value="new file for post on user side. (what the users sees on their personal post!)" />
+    <MESSAGE value="error pages (404 and 500)" />
+    <option name="LAST_COMMIT_MESSAGE" value="error pages (404 and 500)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
